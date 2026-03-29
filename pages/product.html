@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ShoeHub - Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/21141911a4.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .filter-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .price {
+            font-weight: 600;
+            color: #ff6f00;
+        }
+
+        .rating i {
+            color: #ffc107;
+        }
+        .product-img {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title {
+    min-height: 48px;
+}
+
+   
+  
+    </style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="about_us.html">ShoeHub</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+
+            <!-- Search -->
+            <form class="d-flex me-3">
+                <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Search shoes..." id="search-product">
+                    <button class="btn btn-warning" type="button">
+                        <i class="fa-solid fa-search"></i>
+                    </button>
+                </div>
+            </form>
+
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="wishlist.html">Wishlist</a></li>
+                <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+                <li class="nav-item ms-3">
+                    <a href="login.html" class="btn btn-dark btn-sm">Login</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<!-- ================= MAIN SECTION ================= -->
+<main class="container mt-5">
+    <div class="row">
+
+        <!-- ================= FILTER SIDEBAR ================= -->
+<div class="d-lg-none mb-3">
+    <button class="btn btn-dark w-100" data-bs-toggle="offcanvas" data-bs-target="#mobileFilter">
+        ☰ Filters
+    </button>
+</div>
+
+<!-- ================= DESKTOP FILTER SIDEBAR ================= -->
+<div class="col-lg-3 d-none d-lg-block">
+    <div class="filter-box" style="margin-top: 4rem;">
+
+        <h5>Filter By</h5>
+        <hr>
+
+        <!-- Category -->
+        <h6>Category</h6>
+        <div class="form-check">
+            <input class="form-check-input category-filter" type="checkbox" value="sneakers" >
+            <label class="form-check-label " for="sneakers">Sneakers</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input category-filter" type="checkbox" value="running">
+            <label class="form-check-label " for="running">Running Shoes</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input category-filter" type="checkbox" value="heels">
+            <label class="form-check-label " for="heels">Heels</label>
+        </div>
+          <div class="form-check">
+            <input class="form-check-input category-filter" type="checkbox" value="Boots">
+            <label class="form-check-label">Boots</label>
+        </div>
+
+        <hr>
+
+        <!-- Price -->
+        <h6>Price Range</h6>
+        <input type="range" class="form-range" min="20" max="200">
+        <small>$20 - $200</small>
+
+        <hr>
+
+        <!-- Size -->
+        <h6>Size</h6>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="size6">
+            <label class="form-check-label" for="size6">6</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="size7">
+            <label class="form-check-label" for="size7">7</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="size8">
+            <label class="form-check-label" for="size8">8</label>
+        </div>
+  <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="size8">
+            <label class="form-check-label" for="size8">9</label>
+        </div>
+        <button class="btn btn-warning w-100 mt-3">
+            Apply Filters
+        </button>
+
+    </div>
+</div>
+<!-- ================= MOBILE FILTER OFFCANVAS ================= -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileFilter">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Filters</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+
+        <h6>Category</h6>
+        <div class="form-check">
+            <input class="form-check-input category-filter" type="checkbox">
+            <label class="form-check-label">Sneakers</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input category-filter" type="checkbox">
+            <label class="form-check-label">Running Shoes</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input category-filter" type="checkbox">
+            <label class="form-check-label">Heels</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input category-filter" type="checkbox">
+            <label class="form-check-label">Boots</label>
+        </div>
+
+        <hr>
+
+        <h6>Price Range</h6>
+        <input type="range" class="form-range" min="20" max="200">
+        <small>$20 - $200</small>
+
+        <hr>
+
+        <h6>Size</h6>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox">
+            <label class="form-check-label">6</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox">
+            <label class="form-check-label">7</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox">
+            <label class="form-check-label">8</label>
+        </div>
+  <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="size8">
+            <label class="form-check-label" for="size8">9</label>
+        </div>
+        <button class="btn btn-warning w-100 mt-3">
+            Apply Filters
+        </button>
+
+    </div>
+</div>
+
+
+        <!-- ================= PRODUCT SECTION ================= -->
+        <div class="col-lg-9 col-md-8">
+
+            <!-- Sort -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 id="productCount">Products Found</h5>
+                <select class="form-select w-auto">
+                    <option selected>Sort By</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Newest</option>
+                </select>
+            </div>
+
+            <div class="row" id="productContainer">
+            </div>
+</div>
+    </div>
+</main>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/product.js"></script>
+</body>
+</html>
